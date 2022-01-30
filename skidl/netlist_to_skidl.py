@@ -32,8 +32,11 @@ def netlist_to_skidl(netlist_src):
     def legalize(name):
         """Make a string into a legal python variable name."""
         print(f'Input: {name}')
-        print(f'Output: {re.sub("[^a-zA-Z_]", "_", name)}')
-        return re.sub("[^a-zA-Z_]", "_", name)
+        valid = re.sub("[^a-zA-Z0-9_]", "_", name)
+        if valid[0].isdigit():
+            valid = "_" + valid
+        print(f'{valid}')
+        return valid
 
     def comp_key(comp):
         """Create an ID key from component's major characteristics."""
