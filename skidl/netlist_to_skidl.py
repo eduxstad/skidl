@@ -137,7 +137,7 @@ def netlist_to_skidl(netlist_src):
         skidl += "# -*- coding: utf-8 -*-\n\n"
         skidl += "from skidl import *\n\n\n"
         circuit_name = legalize(ntlst.source)
-        skidl += "def {circuit_name}():".format(**locals())
+        skidl += "def generate_circuit():".format(**locals())
 
         section_desc = "Component templates."
         skidl += section_comment.format(**locals())
