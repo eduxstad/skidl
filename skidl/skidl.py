@@ -212,6 +212,10 @@ backup_parts = default_circuit.backup_parts
 # Define a tag for nets that convey power (e.g., VCC or GND).
 POWER = Pin.drives.POWER
 
+#return the circuit
+def return_circuit():
+    return defualt_circuit
+
 
 def no_files(circuit=default_circuit):
     """Prevent creation of output files (netlists, ERC, logs) by this Circuit object."""
