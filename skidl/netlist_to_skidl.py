@@ -31,11 +31,9 @@ def netlist_to_skidl(netlist_src):
 
     def legalize(name):
         """Make a string into a legal python variable name."""
-        print(f'Input: {name}')
         valid = re.sub("[^a-zA-Z0-9_]", "_", name)
         if valid[0].isdigit():
             valid = "_" + valid
-        print(f'{valid}')
         return valid
 
     def comp_key(comp):
@@ -51,6 +49,10 @@ def netlist_to_skidl(netlist_src):
         name = comp_key(template_comp)  # python variable name for template.
         lib = template_comp.lib
         part = template_comp.name
+        #avoid using broken part 74HC86
+        if (part == '74HC86'):
+            print('swapping 74HC86 for 74LS08')
+            part = '74LS08'
         tmpl = "{ltab}{name} = Part('{lib}', '{part}', dest=TEMPLATE".format(**locals())
         footprint = template_comp.footprint
         if len(footprint):
