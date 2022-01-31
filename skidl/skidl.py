@@ -214,7 +214,7 @@ POWER = Pin.drives.POWER
 
 #return the circuit
 def return_circuit():
-    return defualt_circuit
+    return default_circuit
 
 
 def no_files(circuit=default_circuit):
