@@ -53,9 +53,9 @@ def netlist_to_skidl(netlist_src):
         if (part == '74HC86'):
             print('swapping 74HC86 for 74LS08')
             part = '74LS08'
-        else if (part == 'R'):
+        elif (part == 'R'):
             part = 'R_US'
-        else if ("SW" in part):
+        elif ("SW" in part):
             part = 'SW_SPST'
             lib = 'Switch'
         tmpl = "{ltab}{name} = Part('{lib}', '{part}', dest=TEMPLATE".format(**locals())
